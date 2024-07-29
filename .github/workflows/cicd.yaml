@@ -15,7 +15,7 @@ on:
 jobs:
 
   build:
-    runs-on: mac-runner
+    runs-on: self-hosted
 
     steps:
     - name: Checkout repository
@@ -33,7 +33,7 @@ jobs:
       run: go test ./...
   
   code-quality:
-    runs-on: mac-runner
+    runs-on: self-hosted
 
     steps:
     - name: Checkout repository
@@ -45,7 +45,7 @@ jobs:
         version: v1.56.2
   
   push:
-    runs-on: mac-runner
+    runs-on: self-hosted
 
     needs: build
 
@@ -71,7 +71,7 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
 
   update-newtag-in-helm-chart:
-    runs-on: mac-runner
+    runs-on: self-hosted
 
     needs: push
 
