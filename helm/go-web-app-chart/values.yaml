@@ -8,7 +8,7 @@ image:
   repository: venusangana/go-web-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "10016307834"
+  tag: "10146277930"
 
 ingress:
   enabled: false
