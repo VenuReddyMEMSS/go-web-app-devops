@@ -62,7 +62,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Build and Push action1
+    - name: Build and Push action2
       uses: docker/build-push-action@v6
       with:
         context: .
@@ -78,7 +78,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+
     - name: Update tag in Helm chart
       run: |
         sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml
